@@ -55,6 +55,6 @@ app.get('/', (req, res) => {
 app.get('/home', async (req, res) => {
   const news = await newsScheme.find();
 
-  res.render('home', { title : 'ACADEMY-CODE', data : news });
+  res.render('home', { title : 'Academy-Code: Tecnología y programación', data : news });
 });
 app.listen(config.port, () => console.log(`ACADEMY-CODE init in port:  ${config.port}!`))
