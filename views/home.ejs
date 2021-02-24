@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> <%- title %> </title>
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;500;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-page">
+      <%- include('core/header') %>
+      <h1>Hello World!</h1>
+      <div class="first">
+        <% data.forEach(function(item){ %>
+          <%= item.title %> <br>
+        <% }); %>
+      </div>
+      <%- include('core/footer') %>
+    </div>
+  </body>
+  <script src="./assets/js/navbar.js"></script>
+  <script src="./node_modules/@fortawesome/fontawesome-free/js/fontawesome.min.js"></script>
+  <script src="./node_modules/@fortawesome/fontawesome-free/js/solid.min.js"></script>
+</html>
