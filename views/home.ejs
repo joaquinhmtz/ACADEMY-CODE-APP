@@ -12,12 +12,28 @@
   <body>
     <div class="container-page">
       <%- include('core/header') %>
-      <h1>Hello World!</h1>
-      <div class="first">
+      <div class="container-body">
         <% data.forEach(function(item){ %>
-          <%= item.title %> <br>
+          <div class="article">
+            <div class="article-img">
+              <img src="<%= item.imageHeader %>" alt="">
+            </div>
+            <div class="article-body">
+              <h3><%= item.title %></h3>
+              <p><%= item.description %></p>
+
+              <div class="writter">
+                <img src="./assets/img/avatar.jpg" alt="">
+                <div class="writter-info">
+                  <span><%= item.by.fullname %></span>
+                  <span><%= item.creation_date.toLocaleDateString() %></span>
+                </div>
+              </div>
+            </div>
+          </div>
         <% }); %>
       </div>
+
       <%- include('core/footer') %>
     </div>
   </body>

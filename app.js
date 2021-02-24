@@ -48,9 +48,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/', router);
 
+app.get('/', (req, res) => {
+  return res.redirect('/home');
+});
+
 app.get('/home', async (req, res) => {
   const news = await newsScheme.find();
 
   res.render('home', { title : 'ACADEMY-CODE', data : news });
 });
-app.listen(config.port, () => console.log(`Example app listening on port ${config.port}!`))
+app.listen(config.port, () => console.log(`ACADEMY-CODE init in port:  ${config.port}!`))
