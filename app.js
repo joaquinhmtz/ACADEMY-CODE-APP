@@ -69,13 +69,13 @@ app.get('/article/get/:_id', async (req, res) => {
   let head = '';
 
 	newsScheme
-		.findOne({ _id : ObjectId(_id) })
+		.find({ _id : ObjectId(_id) })
 		.exec(function (err, response) {
 			if (err) return next(err);
 
       if(response) {
         head = template(response).html;
-        return res.render('article', { success: true, data: response, myCss: myCss, head: head  });
+        return res.render('home', { success: true, data: response, myCss: myCss, head: head, title: 'response.title'  });
       }
 
 		});
@@ -84,6 +84,6 @@ app.get('/article/get/:_id', async (req, res) => {
 app.get('/home', async (req, res) => {
   const news = await newsScheme.find();
 
-  res.render('home', { title : 'Academy-Code: Tecnología y programación', data : news });
+  res.render('test', { title : 'Academy-Code: Tecnología y programación', data : news });
 });
 app.listen(config.port, () => console.log(`ACADEMY-CODE init in port:  ${config.port}!`))

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <title> <%- title %> </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Academy-Code es un sitio para aquellos amantes de la tecnología, y la programación.">
+    <meta name="keywords" content="blog tecnologia, programacion, videojuegos"/>
+    <meta property="og:title" content="Academy-Code: Tecnología y programación" />
+    <meta property="og:description" content="Academy-Code es un sitio para aquellos amantes de la tecnología, y la programación." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content=" http://www.academy-code.com/" />
+    <meta property="og:image" content="./assets/img/academy-logo.png" />
+
+
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;500;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="container-page">
+      <%- include('core/header') %>
+      <div class="container-body">
+        <h1>Test</h1>
+        <% data.forEach(function(item){ %>
+          <div class="article">
+            <div class="article-img">
+              <img src="<%= item.imageHeader %>" alt="">
+            </div>
+            <div class="article-body">
+              <a href="/article/get/<%= item._id %>"><%= item.title %></a>
+              <p><%= item.description %></p>
+
+              <div class="writter">
+                <img src="./assets/img/avatar.jpg" alt="">
+                <div class="writter-info">
+                  <span class="writter-fullname"><%= item.by.fullname %></span>
+                  <span><%= item.creation_date.toLocaleDateString() %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+
+      <%- include('core/footer') %>
+    </div>
+  </body>
+  <script src="./assets/js/navbar.js"></script>
+</html>
