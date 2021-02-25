@@ -66,7 +66,6 @@ app.get('/', (req, res) => {
 
 app.get('/article/get/:_id', async (req, res) => {
   let _id = req.params._id;
-  let head = '';
 
 	newsScheme
 		.find({ _id : ObjectId(_id) })
@@ -74,8 +73,7 @@ app.get('/article/get/:_id', async (req, res) => {
 			if (err) return next(err);
 
       if(response) {
-        head = template(response).html;
-        return res.render('home', { success: true, data: response, myCss: myCss, head: head, title: 'response.title'  });
+        return res.render('article', { success: true, data: response, myCss: myCss  });
       }
 
 		});
@@ -83,7 +81,13 @@ app.get('/article/get/:_id', async (req, res) => {
 
 app.get('/home', async (req, res) => {
   const news = await newsScheme.find();
+  const tags = {
+    title : 'Academy-Code: Tecnología y programación',
+    description : 'Academy-Code es un sitio para aquellos amantes de la tecnología, y la programación.',
+    url : 'http://www.academy-code.com/',
+    image : './assets/img/academy-logo.png'
+  };
 
-  res.render('test', { title : 'Academy-Code: Tecnología y programación', data : news });
+  res.render('home', { data : news, tags : tags, template : 'core/meta-tags' });
 });
 app.listen(config.port, () => console.log(`ACADEMY-CODE init in port:  ${config.port}!`))
