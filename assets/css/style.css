@@ -144,10 +144,17 @@ a:hover {
   background-color: #fff;
   padding: 20px;
 }
-.article-body h3 {
+.article-body a {
   font-size: 1.2rem;
   font-weight: 400;
+  color: #000;
+  margin: 10px 0;
 }
+
+.article-body a:hover {
+  text-decoration: underline;
+}
+
 .article-body p {
   font-size: 1rem;
   margin-top: 15px;
@@ -158,7 +165,7 @@ a:hover {
   -webkit-line-clamp: 5;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  height: 95px;
+  height: 90px;
 }
 
 .writter {
@@ -204,7 +211,7 @@ a:hover {
 .header-footer {
 	text-align: left;
 	margin-top: 12px;
-  padding: 5px;
+  padding: 5px 0px;
 }
 
 #footer p {
@@ -264,6 +271,41 @@ hr {
 .notice-privacy:hover {
 	cursor: pointer;
 	text-decoration: underline;
+}
+
+/**Detail article**/
+.card-article {
+  display: flex;
+  justify-content: center;
+}
+
+.card-body {
+  width: 70%;
+  margin-bottom: 4rem;
+}
+
+.container-img {
+  width: 100%;
+}
+
+.container-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.span-new-list {
+  color: #636363;
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.container-text {
+	margin-top: 15px;
+  margin-right: 58px;
+  font-size: 19px;
 }
 
 /**MEDIAS QUERIES**/

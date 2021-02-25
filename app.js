@@ -2,9 +2,15 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const env = process.env.NODE_ENV || 'development';
 const config = require('./config/config').createConfig();
+const ObjectId = require('mongoose').Types.ObjectId;
+const fs = require('fs');
+const myCss = {
+   style : fs.readFileSync('./assets/css/style.css','utf8'),
+	 icons : fs.readFileSync('./assets/font-awesome/css/font-awesome.min.css','utf8')
+};
 
 //Models
 const newsScheme = require('./models/news.scheme');
@@ -40,7 +46,7 @@ app.use(function(req, res, next) {
 //Express module
 require('./config/express')(app);
 
-require('./modules/routes')(app, router);
+// require('./modules/routes')(app, router);
 
 app.set('view engine', 'ejs');
 
@@ -50,6 +56,18 @@ app.use('/', router);
 
 app.get('/', (req, res) => {
   return res.redirect('/home');
+});
+
+app.get('/article/get/:_id', async (req, res) => {
+  let _id = req.params._id;
+
+	newsScheme
+		.findOne({ _id : ObjectId(_id) })
+		.exec(function (err, response) {
+			if (err) return next(err);
+
+			return res.render('article', { success: true, data: response, myCss: myCss });
+		});
 });
 
 app.get('/home', async (req, res) => {
