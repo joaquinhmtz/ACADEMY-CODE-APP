@@ -308,6 +308,10 @@ hr {
   font-size: 19px;
 }
 
+.container-text p {
+  text-align: justify;
+}
+
 /**MEDIAS QUERIES**/
 @media (min-width: 1025px) {
   .logo {
@@ -415,5 +419,13 @@ hr {
 
   #footer {
     height: 13rem;
+  }
+
+  .card-body {
+    width: 100%;
+  }
+
+  .container-text {
+    margin-right: 0;
   }
 }

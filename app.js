@@ -9,7 +9,8 @@ const ObjectId = require('mongoose').Types.ObjectId;
 const fs = require('fs');
 const myCss = {
    style : fs.readFileSync('./assets/css/style.css','utf8'),
-	 icons : fs.readFileSync('./assets/font-awesome/css/font-awesome.min.css','utf8')
+	 icons : fs.readFileSync('./assets/font-awesome/css/font-awesome.min.css','utf8'),
+   script : fs.readFileSync('./assets/js/navbar.js','utf8'),
 };
 
 //Models
