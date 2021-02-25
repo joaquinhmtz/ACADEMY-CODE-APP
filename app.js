@@ -49,6 +49,7 @@ require('./config/express')(app);
 
 // require('./modules/routes')(app, router);
 
+app.set('views', 'views');
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
