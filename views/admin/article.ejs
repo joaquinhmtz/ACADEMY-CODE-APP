@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- Core build with no theme, formatting, non-essential modules -->
+<link href="//cdn.quilljs.com/1.2.3/quill.core.css" rel="stylesheet">
+<script src="//cdn.quilljs.com/1.2.3/quill.core.js"></script>
+
+<!-- Main Quill library -->
+<script src="//cdn.quilljs.com/1.2.3/quill.js"></script>
+<script src="//cdn.quilljs.com/1.2.3/quill.min.js"></script>
+
+<!-- Theme included stylesheets -->
+<link href="//cdn.quilljs.com/1.2.3/quill.snow.css" rel="stylesheet">
+<link href="//cdn.quilljs.com/1.2.3/quill.bubble.css" rel="stylesheet">
+
+    <title></title>
+  </head>
+  <body>
+    <h1>New Article</h1>
+    <form id="form" action="/admin/new-article" method="post" enctype="multipart/form-data">
+      <input type="text" name="title" placeholder="Titulo">
+      <textarea name="description" rows="8" cols="80" placeholder="Descripcion"></textarea>
+      <select id="categories" name="category">
+        <option value="0">seleccione</option>
+      </select>
+      <input type="file" name="imageHeader" id="upload" accept="image/jpeg,image/png,image/jpg">
+      <div id="toolbar"></div>
+      <div id="editor" name="body"></div>
+      <textarea style="disply: none;" name="resultEditor" id="resultEditor" rows="8" cols="80"></textarea>
+      <button type="submit" id="btn" name="button">Guardar</button>
+    </form>
+  </body>
+  <script src="./../assets/js/quill.js"></script>
+  <script type="text/javascript">
+
+
+  </script>
+</html>

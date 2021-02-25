@@ -8,6 +8,18 @@ const config = require('./config/config').createConfig();
 const ObjectId = require('mongoose').Types.ObjectId;
 const fs = require('fs');
 var path = require('path');
+var multer  = require('multer');
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/')
+  },
+  filename: function (req, file, cb) {
+    const type = file.mimetype.slice(6);
+    const fieldname = Date.now().toString() + '.' + type;
+    cb(null, fieldname)
+  }
+})
+var upload = multer({ storage: storage })
 const myCss = {
    style : fs.readFileSync('./assets/css/style.css','utf8'),
 	 icons : fs.readFileSync('./assets/font-awesome/css/font-awesome.min.css','utf8'),
@@ -58,10 +70,65 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, '/assets')));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(express.urlencoded({ extended : false }));
 app.use('/', router);
 
 app.get('/', (req, res) => {
   return res.redirect('/home');
+});
+
+app.get('/admin/write-article', async (req, res) => {
+  return res.render('admin/article', { article : new newsScheme() });
+});
+
+app.post('/admin/new-article', upload.single('imageHeader'), async (req, res) => {
+  console.log('hola', req.body);
+  const tags = {
+    title : 'Academy-Code: Tecnología y programación',
+    description : 'Academy-Code es un sitio para aquellos amantes de la tecnología, y la programación.',
+    url : 'http://www.academy-code.com/',
+    image : './assets/img/academy-logo.png'
+  };
+  let obj = {
+    title : req.body.title,
+    description : req.body.description,
+    body: req.body.resultEditor,
+    imageHeader : 'http://academy-code.com/' + req.file.path,
+    by : { id: ObjectId("5e94bf03cc5b9415a8b56195"), fullname : "JOAQUIN HERNANDEZ MARTINEZ" }
+  };
+  switch(req.body.category) {
+    case '1':
+      obj['category'] = {id:1, name:'Apple'};
+    break;
+    case '2':
+      obj['category'] = {id:2, name:'Videojuegos'};
+    break;
+    case '3':
+      obj['category'] = {id:3, name:'Móvil'};
+    break;
+    case '4':
+      obj['category'] = {id:4, name:'Android'};
+    break;
+    case '5':
+      obj['category'] = {id:5, name:'Computo'};
+    break;
+    case '6':
+      obj['category'] = {id:6, name:'Desarrollo web'};
+    break;
+    case '7':
+      obj['category'] = {id:7, name:'Desarrollo móvil'};
+    break;
+  }
+
+  var model = new newsScheme(obj);
+  model.save(function (err, response) {
+		if (err) {
+			return next(err);
+		} else {
+			return res.status(200).send({success:true});
+		}
+	});
+  //return res.render('admin/article');
 });
 
 app.get('/article/get/:_id', async (req, res) => {
