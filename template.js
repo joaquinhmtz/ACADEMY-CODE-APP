@@ -18,6 +18,7 @@ function template(data) {
         '<link rel="preconnect" href="https://fonts.gstatic.com">' +
         '<link rel="preconnect" href="https://fonts.gstatic.com">' +
         '<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;500;900&display=swap" rel="stylesheet">' +
+        '<link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.min.css">'+
       '</head>'
 	}
 }

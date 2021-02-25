@@ -7,6 +7,7 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('./config/config').createConfig();
 const ObjectId = require('mongoose').Types.ObjectId;
 const fs = require('fs');
+var path = require('path');
 const myCss = {
    style : fs.readFileSync('./assets/css/style.css','utf8'),
 	 icons : fs.readFileSync('./assets/font-awesome/css/font-awesome.min.css','utf8'),
@@ -53,8 +54,10 @@ require('./config/express')(app);
 app.set('views', 'views');
 app.set('view engine', 'ejs');
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+//app.use("/assets", express.static(__dirname + "/assets"));
+app.use(express.static(path.join(__dirname, '/assets')));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use('/', router);
 
 app.get('/', (req, res) => {
