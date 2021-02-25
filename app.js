@@ -68,12 +68,18 @@ app.get('/article/get/:_id', async (req, res) => {
   let _id = req.params._id;
 
 	newsScheme
-		.find({ _id : ObjectId(_id) })
+		.findOne({ _id : ObjectId(_id) })
 		.exec(function (err, response) {
 			if (err) return next(err);
 
       if(response) {
-        return res.render('article', { success: true, data: response, myCss: myCss  });
+        const tags = {
+          title : response.title,
+          description : response.description,
+          url : 'http://www.academy-code.com/article/get/'+response._id,
+          image : response.imageHeader
+        };
+        return res.render('article', { success: true, data: response, myCss: myCss, tags : tags, template : 'core/meta-tags'  });
       }
 
 		});
