@@ -12,6 +12,7 @@ const myCss = {
 	 icons : fs.readFileSync('./assets/font-awesome/css/font-awesome.min.css','utf8'),
    script : fs.readFileSync('./assets/js/navbar.js','utf8'),
 };
+const template = require('./template.js').template;
 
 //Models
 const newsScheme = require('./models/news.scheme');
@@ -62,13 +63,18 @@ app.get('/', (req, res) => {
 
 app.get('/article/get/:_id', async (req, res) => {
   let _id = req.params._id;
+  let head = '';
 
 	newsScheme
 		.findOne({ _id : ObjectId(_id) })
 		.exec(function (err, response) {
 			if (err) return next(err);
 
-			return res.render('article', { success: true, data: response, myCss: myCss });
+      if(response) {
+        head = template(response).html;
+        return res.render('article', { success: true, data: response, myCss: myCss, head: head  });
+      }
+
 		});
 });
 
