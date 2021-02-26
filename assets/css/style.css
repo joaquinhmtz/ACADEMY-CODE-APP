@@ -312,6 +312,20 @@ hr {
   text-align: justify;
 }
 
+/**About page**/
+.text-about {
+	margin-left: 10px;
+	padding: 12px 0px 12px 0px;
+  text-align: justify;
+}
+
+.vertical-line {
+	border-left: 6px solid #f1f2f3;
+	height: 245px;
+  margin-top: 2.5rem;
+  width: 50%;
+}
+
 /**MEDIAS QUERIES**/
 @media (min-width: 1025px) {
   .logo {
@@ -435,4 +449,11 @@ hr {
   .container-text {
     margin-right: 0;
   }
+
+  .vertical-line {
+    margin-top: 2rem;
+    height: 295px;
+    width: 100%;
+  }
+
 }
