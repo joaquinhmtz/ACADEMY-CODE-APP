@@ -347,7 +347,7 @@ hr {
 
   .logo {
     flex: 4;
-    margin-top: 2.9vh;
+    margin-top: 1.8vh;
   }
 
   .logo-name {
@@ -356,6 +356,12 @@ hr {
 
   .logo-img {
     display: block;
+    transition: 0.4s;
+  }
+
+  .logo-img img {
+    transition: 0.4s;
+    width: 30%;
   }
 
   .navbar {
