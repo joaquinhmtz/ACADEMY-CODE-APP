@@ -79,11 +79,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  return res.render('about');
+  return res.render('about', { success: true, myCss: myCss  });
 });
 
 app.get('/contact', (req, res) => {
-  return res.render('contact');
+  return res.render('contact', { success: true, myCss: myCss  });
 });
 
 app.get('/admin/write-article', async (req, res) => {

@@ -359,6 +359,14 @@ hr {
     flex-direction: column;
   }
 
+  li {
+    text-align: center;
+  }
+
+  a {
+    font-size: 1.55rem;
+  }
+
   .search {
     display: none;
   }
