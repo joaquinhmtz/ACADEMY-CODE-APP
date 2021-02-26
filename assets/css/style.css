@@ -361,11 +361,11 @@ hr {
 
   .logo-img img {
     transition: 0.4s;
-    width: 30%;
+    width: 40%;
   }
 
   .navbar {
-    flex: 8;
+    flex: 0;
     justify-content: center;
     display: none;
   }
@@ -393,7 +393,7 @@ hr {
 
   .icon-menu {
     display: flex;
-    flex: 5;
+    flex: 4;
     margin-top: 2.9vh;
     align-items: flex-end;
     flex-direction: column;
