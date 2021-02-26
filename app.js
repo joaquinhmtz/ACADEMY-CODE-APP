@@ -79,11 +79,23 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  return res.render('about', { success: true, myCss: myCss  });
+  const tags = {
+    title : 'Academy-Code: Tecnología y programación',
+    description : 'Academy-Code es una compañía que nos dedicamos a los que más amamos, la programación.',
+    url : 'http://www.academy-code.com/about',
+    image : './assets/img/academy-logo.png'
+  };
+  return res.render('about', { success: true, myCss: myCss, tags : tags, title: 'Acerca de nosotros', template : 'core/meta-tags'  });
 });
 
 app.get('/contact', (req, res) => {
-  return res.render('contact', { success: true, myCss: myCss  });
+  const tags = {
+    title : 'Academy-Code: Tecnología y programación',
+    description : 'Academy-Code está 24/7, al pendiente de nuestros usuarios.',
+    url : 'http://www.academy-code.com/contact',
+    image : './assets/img/academy-logo.png'
+  };
+  return res.render('contact', { success: true, myCss: myCss, tags : tags, title: 'Contacto', template : 'core/meta-tags'  });
 });
 
 app.get('/admin/write-article', async (req, res) => {
