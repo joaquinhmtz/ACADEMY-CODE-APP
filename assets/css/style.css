@@ -358,6 +358,11 @@ hr {
   margin: 15px 0;
 }
 
+.second-panel .form-group:last-child {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
 :focus{outline: none;}
 
 input[type="text"] {
