@@ -85,7 +85,7 @@ app.get('/about', (req, res) => {
     url : 'http://www.academy-code.com/about',
     image : './assets/img/academy-logo.png'
   };
-  return res.render('about', { success: true, myCss: myCss, tags : tags, title: 'Acerca de nosotros', template : 'core/meta-tags'  });
+  return res.render('about', { success: true, myCss: myCss, tags : tags, title: 'Academy-Code: Acerca de nosotros', template : 'core/meta-tags'  });
 });
 
 app.get('/contact', (req, res) => {
@@ -95,7 +95,7 @@ app.get('/contact', (req, res) => {
     url : 'http://www.academy-code.com/contact',
     image : './assets/img/academy-logo.png'
   };
-  return res.render('contact', { success: true, myCss: myCss, tags : tags, title: 'Contacto', template : 'core/meta-tags'  });
+  return res.render('contact', { success: true, myCss: myCss, tags : tags, title: 'Academy-Code: Contacto', template : 'core/meta-tags'  });
 });
 
 app.get('/admin/write-article', async (req, res) => {
