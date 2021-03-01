@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-page {
+    min-height: 100vh;
+    position: relative;
+    font-family: 'Barlow', sans-serif;
+}
+
+.container-body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.article {
+  width: 70%;
+  padding: 20px;
+}
+
+:focus{outline: none;}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 15px 0;
+}
+
+label {
+  color: rgba(0, 0, 0, 0.3);
+  margin-top: 15px;
+}
+
+input {
+  font-family: 'Barlow', sans-serif;
+}
+
+input[type="text"] {
+  height: 40px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 10px 0;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  color: #333;
+}
+
+input[type="text"] ~ .focus-border{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #3399FF;
+  transition: 0.4s;
+}
+
+input:focus ~ .focus-border{
+  width: 100%; transition: 0.4s;
+}
+
+textarea {
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 10px 0;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  color: #333;
+  border: 1px solid #ccc;
+  font-family: 'Barlow', sans-serif;
+  height: 80px;
+  margin-top: 5px;
+}
+
+textarea{resize: none}
+
+select {
+  margin-top: 5px;
+  border-radius: 5px;
+  font-family: 'Barlow', sans-serif;
+  height: 30px;
+  padding: 5px 0;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+input[type="file"] {
+  height: 35px;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 10px 0;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#btn {
+  border: 0;
+  padding: 15px;
+  width: 100%;
+  color: #fff;
+  background-color: #000;
+  font-size: .9rem;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#btn:hover {
+  opacity: 0.7;
+}
+
+#btn:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+@media (max-width: 1024px) {
+  .article {
+    width: 100%;
+  }
+}
