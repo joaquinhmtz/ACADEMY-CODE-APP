@@ -103,7 +103,6 @@ app.get('/admin/write-article', async (req, res) => {
 });
 
 app.post('/admin/new-article', upload.single('imageHeader'), async (req, res) => {
-  console.log('hola', req.body);
   const tags = {
     title : 'Academy-Code: Tecnología y programación',
     description : 'Academy-Code es un sitio para aquellos amantes de la tecnología, y la programación.',
@@ -174,7 +173,7 @@ app.get('/article/get/:_id', async (req, res) => {
 });
 
 app.get('/home', async (req, res) => {
-  const news = await newsScheme.find();
+  const news = await newsScheme.find().sort({creation_date:-1});
   const tags = {
     title : 'Academy-Code: Tecnología y programación',
     description : 'Academy-Code es un sitio para aquellos amantes de la tecnología, y la programación.',
