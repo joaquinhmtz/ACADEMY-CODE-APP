@@ -22,7 +22,7 @@
                 <img src="./assets/img/avatar.jpg" alt="">
                 <div class="writter-info">
                   <span class="writter-fullname"><%= item.by.fullname %></span>
-                  <span><%= item.creation_date.toLocaleDateString() %></span>
+                  <span><%= item.creation_date.toLocaleDateString("es-ES", { day: 'numeric',  month: 'numeric', year: 'numeric' }) %></span>
                 </div>
               </div>
             </div>

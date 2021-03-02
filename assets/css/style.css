@@ -99,7 +99,7 @@ ul {
   list-style: none;
 }
 
-a {
+.link {
   font-weight: 100;
   display: block;
   margin: 10px;
@@ -107,7 +107,7 @@ a {
   color: #5f5f79;
 }
 
-a:hover {
+.link:hover {
   color: #000;
 }
 
@@ -505,7 +505,7 @@ textarea{resize: none}
     text-align: center;
   }
 
-  a {
+  .link {
     font-size: 1.55rem;
   }
 
