@@ -643,4 +643,23 @@ textarea{resize: none}
     border-left: 0;
   }
 
+  .container-articles-related {
+    justify-content: normal;
+  }
+
+  .card-articles-related {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .article-related {
+    width: 100%;
+    padding: 5px 0;
+  }
+
+  .container-title-related {
+    width: 100%;
+    font-size: .96rem;
+  }
+
 }
