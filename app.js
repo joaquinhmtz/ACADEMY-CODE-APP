@@ -167,7 +167,18 @@ app.get('/article/get/:_id', async (req, res) => {
           url : 'http://www.academy-code.com/article/get/'+response._id,
           image : response.imageHeader
         };
-        return res.render('article', { success: true, data: response, myCss: myCss, tags : tags, template : 'core/meta-tags'  });
+
+        newsScheme
+          .find({ 'category.id' : response.category.id, _id: { $ne: ObjectId(response._id) } })
+          .sort({ creation_date : - 1 })
+          .limit(3)
+          .then((results) => {
+            if(results) {
+              if (err) return next(err);
+
+              return res.render('article', { success: true, data: response, list: results, myCss: myCss, tags : tags, template : 'core/meta-tags'  });
+            }
+          });
       }
 
 		});

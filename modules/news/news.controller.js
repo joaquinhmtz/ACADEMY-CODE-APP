@@ -26,7 +26,22 @@ function getNewById(req, res, next) {
 		});
 }
 
+function getArticlesRelated(req, res, next) {
+  var data = req.params;
+
+  newsScheme
+    .find({ 'category.id' : data.id })
+    .sort({ 'creation_date' : -1 });
+    .limit(5)
+    .then((results) => {
+      if(err) next(err);
+
+      return res.status(200).send({ success: true, data: results });
+    });
+}
+
 module.exports = {
 	list: list,
-	getNewById: getNewById
+	getNewById: getNewById,
+  getArticlesRelated: getArticlesRelated
 };

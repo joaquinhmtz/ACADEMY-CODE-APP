@@ -27,6 +27,25 @@
       			</div>
           </div>
         </div>
+        <div class="container-articles-related" style="margin-bottom: 20px;">
+          <div class="container-title-related">
+            <h2>Artículos que te pueden interesar</h2>
+          </div>
+        </div>
+        <div class="container-articles-related">
+          <div class="card-articles-related">
+            <% list.forEach(function(item){ %>
+              <div class="article-related">
+                <div class="article-related-img">
+          				<img align="center" src="<%- item.imageHeader %>" alt="">
+          			</div>
+                <div class="article-related-title">
+                  <a class="article-related-title" href="/article/get/<%= item._id %>"><%= item.title %></a>
+                </div>
+              </div>
+            <% }); %>
+          </div>
+        </div>
       </div>
       <%- include('core/footer') %>
     </div>
