@@ -186,6 +186,7 @@ app.get('/article/get/:_id', async (req, res) => {
 
 app.get('/home', async (req, res) => {
   const news = await newsScheme.find().sort({creation_date:-1});
+  const categories = await newsScheme.aggregate([{ $group: { _id : '$category.name', total : { $sum:1 } } }, { $sort : { _id : 1 } }]);
   const tags = {
     title : 'Academy-Code: Tecnología y programación',
     description : 'Academy-Code es un sitio para aquellos amantes de la tecnología, y la programación.',
@@ -193,6 +194,6 @@ app.get('/home', async (req, res) => {
     image : './assets/img/academy-logo.png'
   };
 
-  res.render('home', { data : news, tags : tags, template : 'core/meta-tags' });
+  res.render('home', { data : news, tags : tags, template : 'core/meta-tags', categories : categories  });
 });
 app.listen(config.port, () => console.log(`ACADEMY-CODE init in port:  ${config.port}!`))

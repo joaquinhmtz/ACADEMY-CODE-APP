@@ -8,26 +8,51 @@
   <body>
     <div class="container-page">
       <%- include('core/header') %>
-      <div class="container-body">
-        <% data.forEach(function(item){ %>
-          <div class="article">
-            <div class="article-img">
-              <img src="<%= item.imageHeader %>" alt="">
-            </div>
-            <div class="article-body">
-              <a href="/article/get/<%= item._id %>"><%= item.title %></a>
-              <p><%= item.description %></p>
+      <div class="container-body" style="display: flex;">
+        <div class="section-article">
+          <% data.forEach(function(item){ %>
+            <div class="article">
+              <div class="article-img">
+                <img src="<%= item.imageHeader %>" alt="">
+              </div>
+              <div class="article-body">
+                <div class="article-header">
+                  <div class="date-article">
+                    <span>19</span>
+                    <span>APR</span>
+                  </div>
+                  <a href="/article/get/<%= item._id %>"><%= item.title %></a>
+                </div>
 
-              <div class="writter">
-                <img src="./assets/img/avatar.jpg" alt="">
-                <div class="writter-info">
-                  <span class="writter-fullname"><%= item.by.fullname %></span>
-                  <span><%= item.creation_date.toLocaleDateString("es-ES", { day: 'numeric',  month: 'numeric', year: 'numeric' }) %></span>
+                <p><%= item.description %></p>
+
+                <div class="writter">
+                  <img src="./assets/img/avatar.jpg" alt="">
+                  <div class="writter-info">
+                    <span class="writter-fullname"><%= item.by.fullname %></span>
+                    <span><%= item.creation_date.toLocaleDateString("es-ES", { day: 'numeric',  month: 'numeric', year: 'numeric' }) %></span>
+                  </div>
                 </div>
               </div>
             </div>
+          <% }); %>
+        </div>
+        <div class="section-search">
+          <div class="searcher">
+            <label class="label-search">BUSCAR</label>
+            <input type="text" class="input-search" placeholder="Buscar artículo....">
+            <span class="icon-search"><i class="fa fa-search"></i></span>
           </div>
-        <% }); %>
+          <div class="categories">
+            <label class="label-search">CATEGORÍAS</label>
+            <% categories.forEach(function(item){ %>
+              <div class="category-item">
+                <label class="category-name"><%= item._id %></label>
+                <label class="category-count"><%= item.total %></label>
+              </div>
+            <% }); %>
+          </div>
+        </div>
       </div>
 
       <%- include('core/footer') %>

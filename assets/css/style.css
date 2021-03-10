@@ -87,12 +87,12 @@ header {
   box-shadow: 0 0 5px rgba(0,0,0,.2);
 }
 
-.icon-search {
+/* .icon-search {
   position: absolute;
   right: 15px;
   cursor: pointer;
   font-size: 1.2rem;
-}
+} */
 
 ul {
   display: flex;
@@ -195,6 +195,52 @@ ul {
 
 .writter-info span {
   color: var(--dark_gray_neutral);
+}
+
+.section-article {
+  width: 70%;
+}
+
+.section-search {
+  width: 30%;
+  padding: 10px;
+}
+
+.searcher {
+  position: relative;
+  flex: 1;
+}
+
+.label-search {
+  display: block;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.input-search {
+  width: 91%;
+  height: 20px;
+  border: 1.5px solid #ccc;
+  border-radius: 0;
+  padding: 10px 12px;
+}
+
+.icon-search {
+  position: absolute;
+  right: 12px;
+  top: 33px;
+  font-size: 1.2rem;
+}
+
+.categories {
+  padding-top: 50px;
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 5px 5px 5px;
+  border-bottom: 1px solid #ccc;
 }
 
 /**Footer**/
@@ -412,7 +458,7 @@ hr {
 
 :focus{outline: none;}
 
-input[type="text"] {
+.input-form {
   height: 40px;
   border: 0;
   border-bottom: 1px solid #ccc;
@@ -424,7 +470,7 @@ input[type="text"] {
   color: #333;
 }
 
-input[type="text"] ~ .focus-border{
+.input-form ~ .focus-border{
   position: absolute;
   bottom: 0;
   left: 0;
@@ -433,7 +479,7 @@ input[type="text"] ~ .focus-border{
   background-color: #3399FF;
   transition: 0.4s;
 }
-input[type="text"]:focus ~ .focus-border{
+.input-form:focus ~ .focus-border{
   width: 100%;
   transition: 0.4s;
 }
@@ -443,7 +489,7 @@ label {
   margin-top: 15px;
 }
 
-input[type="text"] ~ .focus-border{
+.input-form ~ .focus-border{
   position: absolute;
   bottom: 0;
   left: 0;
@@ -453,7 +499,7 @@ input[type="text"] ~ .focus-border{
   transition: 0.4s;
 }
 
-input:focus ~ .focus-border{
+.input-form:focus ~ .focus-border{
   width: 100%; transition: 0.4s;
 }
 
@@ -500,7 +546,7 @@ textarea{resize: none}
     align-items: center;
   }
   .article {
-    width: 70%;
+    width: 100%;
   }
 }
 
@@ -589,11 +635,29 @@ textarea{resize: none}
   }
 
   .article {
-    height: 150px;
+    height: 300px;
+    flex-direction: column;
+    margin-bottom: 35px;
+  }
+
+  .article-img {
+    width: 100%;
+    height: 200px;
   }
 
   .article-body {
-    padding: 15px;
+    padding: 15px 0;
+    width: 100%;
+  }
+
+  .date-article {
+    background-color: yellow;
+    padding: 10px;
+    width: 65px;
+    height: 60px;
+    text-align: center;
+    border-radius: 3px;
+    display: inline-block;
   }
 
   .article-body p {
