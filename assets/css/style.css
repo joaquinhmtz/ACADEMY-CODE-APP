@@ -726,4 +726,11 @@ textarea{resize: none}
     font-size: .96rem;
   }
 
+  .section-search {
+    display: none;
+  }
+
+  .section-article {
+    width: 100%;
+  }
 }
